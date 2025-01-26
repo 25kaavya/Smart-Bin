@@ -1,0 +1,77 @@
+ScreenManager:
+    MainScreen:
+    ResultScreen:
+
+<MainScreen>:
+    name: "main"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0.2, 0.2, 0.2, 1  # Dull dark grey background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Canada Recycling Guide"
+            font_size: 32
+            halign: "center"
+            color: 1, 1, 1, 1  # White text color
+
+        TextInput:
+            id: text_input
+            hint_text: "Describe the item (e.g., plastic bottle)"
+            size_hint_y: None
+            height: 50
+            multiline: False
+            background_color: 1, 1, 1, 1  # White input background
+            foreground_color: 0, 0, 0, 1  # Black text
+
+        Button:
+            text: "Submit Description"
+            size_hint_y: None
+            height: 50
+            on_release: root.process_text_input()
+            background_color: 0.4, 0.4, 0.4, 1  # Slightly lighter grey button
+            color: 1, 1, 1, 1  # White text color
+
+        Button:
+            text: "Choose Image"
+            size_hint_y: None
+            height: 50
+            on_release: root.open_file_chooser()
+            background_color: 0.4, 0.4, 0.4, 1  # Slightly lighter grey button
+            color: 1, 1, 1, 1  # White text color
+
+<ResultScreen>:
+    name: "result"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0.2, 0.2, 0.2, 1  # Dull dark grey background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            id: result_label
+            text: "Your result will appear here."
+            font_size: 32
+            halign: "center"
+            valign: "center"
+            size_hint_y: 0.8
+            color: 1, 1, 1, 1  # White text color
+
+        Button:
+            text: "Back to Main Screen"
+            size_hint_y: None
+            height: 50
+            on_release: app.root.current = "main"
+            background_color: 0.4, 0.4, 0.4, 1  # Slightly lighter grey button
+            color: 1, 1, 1, 1  # White text color

@@ -1,0 +1,2 @@
+kivy
+google-cloud-vision
